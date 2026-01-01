@@ -18,10 +18,73 @@ public:
     };
 };
 
+class List
+{
+    /// by default they will be privet if we dont declare anything
+    Node *head;
+    Node *tail;
+
+public:
+    List()
+    {
+        head = tail = NULL;
+    }
+    // another method to push the node to the front of the ll
+    void push_front(int value)
+    {
+        Node *newNode = new Node(value); // it will create the new node to to push and it will creat the dynamic object wich never going to washout , so that we use new keywork or the method
+        /// this is th 1th case where there is no nude, the node count is 0 now
+        if (head == NULL)
+        {
+            head = tail = newNode;
+            return;
+        }
+        else
+        {
+            newNode->next = head;
+            ////what that arrow does it it : (*newNode).next=head; so the above one is the shortfrom
+            head = newNode;
+        }
+    };
+
+    void push_back(int value)
+    {
+        Node *newNode = new Node(value);
+        if (tail == NULL)
+        {
+            head = tail = newNode;
+            return;
+        }
+        else
+        {
+            tail->next = newNode;
+            tail = newNode;
+        }
+    }
+
+    void printAll()
+    {
+        Node *temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
 int main()
 {
 
-    std::cout << 'hello word';
-    int variable;
-    std::cin >> variable;
+    List ll; /// just created the list;
+
+    ll.push_front(1);
+    ll.push_front(2);
+    ll.push_front(3);
+
+    ll.push_back(34);
+    // now how will you print this ? for that lets use temp variablw which can goes to each nodes and print those value;
+    ll.printAll();
+    return 0;
 }
