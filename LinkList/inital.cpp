@@ -64,6 +64,7 @@ public:
 
     void printAll()
     {
+        // to print the or traverse the all those nodes we need the extra temp variable which goes there , and copy the address and the get the result for that each node
         Node *temp = head;
         while (temp != NULL)
         {
@@ -71,6 +72,25 @@ public:
             temp = temp->next;
         }
         cout << endl;
+    }
+
+    void pop_front()
+    {
+        if (head == NULL)///if there is not a single node exist
+        {
+            return;
+        }if(head==tail){///if there is only one node 
+            delete head;
+            head=tail=NULL;
+            return;
+        }
+        else
+        {
+            Node *temp = head; // first creat the temp variable and point it out to that head node
+            head=head->next; // second move the first head to its next node, so that it will become the next node and that will be the head node , and previouse head node got saparete
+            temp->next = NULL; // like this we disconnected the next node connection with our linkin list
+            delete temp;
+        }
     }
 };
 
@@ -85,6 +105,8 @@ int main()
 
     ll.push_back(34);
     // now how will you print this ? for that lets use temp variablw which can goes to each nodes and print those value;
+    ll.printAll();
+    ll.pop_front();
     ll.printAll();
     return 0;
 }
