@@ -135,15 +135,34 @@ public:
         }
 
         Node *temp = head;
-        for(int i=0; i<postion-1; i++){
+        for (int i = 0; i < postion - 1; i++)
+        {
+            /// also check the temp is null-> means there is no nodes
+            if (temp == NULL)
+                return;
             /// so now it will move towords to desired position that we wanted
-            temp=temp->next;   
+            temp = temp->next;
         }
-        ///now here we have establish the connection between that head->newNode-> next node
-        Node* newNode=new Node(value);
-        newNode->next=temp->next;
-        temp->next=newNode;
+        /// now here we have establish the connection between that head->newNode-> next node
+        Node *newNode = new Node(value);
+        newNode->next = temp->next;
+        temp->next = newNode;
     };
+
+    void search(int value)
+    {
+        Node *temp = head;
+        while (temp != NULL) // means the head is not equal to empty , means empty linkedin list
+        {
+            if (temp->data == value)
+            {
+                cout << "this is th result" << " " << value << endl;
+                return;
+            }
+            temp = temp->next;
+        }
+        cout << "the given value is not exist\n";
+    }
 };
 
 int main()
@@ -168,9 +187,10 @@ int main()
     MM.push_front(2);
     MM.push_front(3);
     MM.printAll();
-    MM.insert_node(77,2);
-     MM.insert_node(11,0);
+    MM.insert_node(77, 2);
+    MM.insert_node(11, 0);
     MM.printAll();
+    MM.search(47473);
 
     return 0;
 }
