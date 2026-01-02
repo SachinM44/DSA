@@ -76,19 +76,42 @@ public:
 
     void pop_front()
     {
-        if (head == NULL)///if there is not a single node exist
+        if (head == NULL) /// if there is not a single node exist
         {
             return;
-        }if(head==tail){///if there is only one node 
+        }
+        if (head == tail)
+        { /// if there is only one node
             delete head;
-            head=tail=NULL;
+            head = tail = NULL;
             return;
         }
         else
         {
             Node *temp = head; // first creat the temp variable and point it out to that head node
-            head=head->next; // second move the first head to its next node, so that it will become the next node and that will be the head node , and previouse head node got saparete
+            head = head->next; // second move the first head to its next node, so that it will become the next node and that will be the head node , and previouse head node got saparete
             temp->next = NULL; // like this we disconnected the next node connection with our linkin list
+            delete temp;
+        }
+    }
+
+    void pop_back()
+    {
+        if (tail == NULL)
+        {
+            return;
+        }
+        if (tail == head)
+        {
+            delete tail;
+            tail = head = NULL;
+            return;
+        }
+        else
+        {
+            Node *temp = tail;
+            tail = tail->next;
+            temp->next = NULL;
             delete temp;
         }
     }
@@ -107,6 +130,7 @@ int main()
     // now how will you print this ? for that lets use temp variablw which can goes to each nodes and print those value;
     ll.printAll();
     ll.pop_front();
+    ll.pop_back();
     ll.printAll();
     return 0;
 }
