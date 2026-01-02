@@ -68,10 +68,10 @@ public:
         Node *temp = head;
         while (temp != NULL)
         {
-            cout << temp->data << " ";
+            cout << temp->data << "->";
             temp = temp->next;
         }
-        cout << endl;
+        cout << "NULL" << endl;
     }
 
     void pop_front()
@@ -97,29 +97,58 @@ public:
 
     void pop_back()
     {
-        if (tail == NULL)
+        if (head == NULL)
         {
             return;
         }
-        if (tail == head)
+        /// this is for the condition where the there is only one node , and that i genarally considerd as the single node , which always has the head only not the tail;
+        if (head == tail)
         {
-            delete tail;
-            tail = head = NULL;
+            delete head;
+            head = tail = NULL;
             return;
         }
-        else
+        Node *temp = head;
+        while (temp->next != tail)
         {
-            Node *temp = tail;
-            tail = tail->next;
-            temp->next = NULL;
-            delete temp;
+            temp = temp->next;
         }
+
+        temp->next = NULL;
+        delete tail;
+        tail = temp;
     }
+
+    void insert_node(int value, int postion)
+    {
+        /// if the position is invalid
+        if (postion < 0)
+        {
+            cout << "invalide position\n";
+            return;
+        }
+        // if the position is 0th means head one -> then call the push_front which calls the head
+        if (postion == 0)
+        {
+            push_front(value);
+            return;
+        }
+
+        Node *temp = head;
+        for(int i=0; i<postion-1; i++){
+            /// so now it will move towords to desired position that we wanted
+            temp=temp->next;   
+        }
+        ///now here we have establish the connection between that head->newNode-> next node
+        Node* newNode=new Node(value);
+        newNode->next=temp->next;
+        temp->next=newNode;
+    };
 };
 
 int main()
 {
-
+    List MM;
     List ll; /// just created the list;
 
     ll.push_front(1);
@@ -132,5 +161,16 @@ int main()
     ll.pop_front();
     ll.pop_back();
     ll.printAll();
+    ll.pop_back();
+    ll.printAll();
+    MM.push_front(1);
+    MM.push_back(0);
+    MM.push_front(2);
+    MM.push_front(3);
+    MM.printAll();
+    MM.insert_node(77,2);
+     MM.insert_node(11,0);
+    MM.printAll();
+
     return 0;
 }
