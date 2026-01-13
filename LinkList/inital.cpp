@@ -79,7 +79,7 @@ public:
         if (head == NULL) /// if there is not a single node exist
         {
             return;
-        }
+        } 
         if (head == tail)
         { /// if there is only one node
             delete head;
