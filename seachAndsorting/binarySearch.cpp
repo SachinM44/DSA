@@ -23,3 +23,5 @@ int binarySearch(vector<int> &arr, int target)
 
     return -1;
 }
+
+//tc 0(log n), sc 0(1)
