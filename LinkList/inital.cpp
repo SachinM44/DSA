@@ -18,6 +18,27 @@ public:
     };
 };
 
+class Box
+{
+
+public:
+    int data;
+    Box *next;
+    Box(int value)
+    {
+        data = value;
+        next = NULL;
+    }
+};
+
+Box::Box(/* args */)
+{
+}
+
+Box::~Box()
+{
+}
+
 class List
 {
     /// by default they will be privet if we dont declare anything
@@ -79,7 +100,7 @@ public:
         if (head == NULL) /// if there is not a single node exist
         {
             return;
-        } 
+        }
         if (head == tail)
         { /// if there is only one node
             delete head;
