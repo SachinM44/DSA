@@ -1,10 +1,12 @@
 #include <iostream>;
 #include <string>;
 using namespace std;
-
+BundleGenie
 class teacher
 {
     ///access modifier// and by defaul is privet
+    private: 
+    float salary; 
     public:
     // properties/// atributes
     string name;
