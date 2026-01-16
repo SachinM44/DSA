@@ -23,3 +23,6 @@ int recursiveBinarySearch(vector<int> &arr, int left, int right, int target)
         return recursiveBinarySearch(arr, left, target, mid - 1);
     }
 }
+
+/// tc for this o(log n)
+// space 0(n log n)
