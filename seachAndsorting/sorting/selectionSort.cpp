@@ -22,3 +22,6 @@ int selctionSort(vector<int> &arr)
         swap(arr[i], arr[minIndex]);
     }
 }
+
+
+///tc 0(n*2) worst , best -> o(n) for the best for the array limit is given , sc-> 0(1)
