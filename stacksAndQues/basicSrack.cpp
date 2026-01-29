@@ -7,7 +7,9 @@ using namespace std;
 
 class Stack
 {
+    /// @brief with vector 
     vector<int> v;
+    
 
 public:
     void push(int value)
