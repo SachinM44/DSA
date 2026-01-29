@@ -1,7 +1,7 @@
 
 
-#include <iostream>;
-#include <vector>;
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -35,6 +35,14 @@ public:
 
 int main()
 {
-
+  Stack s;
+  s.push(4);
+  s.push(3);
+  s.push(2);
+  while(!s.isEmpty()){
+    cout << s.top() << " ";
+    s.pop();
+  }
+  cout << endl;
     return 0;
 }
