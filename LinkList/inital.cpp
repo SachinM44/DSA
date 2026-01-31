@@ -6,6 +6,7 @@ using namespace std;
 // this class is the individual node=> next we need the another class which can connect all those node -> u can call it as the link list class
 class Node
 {
+
 public:
     int data;
     Node *next;
@@ -30,14 +31,6 @@ public:
         next = NULL;
     }
 };
-
-Box::Box(/* args */)
-{
-}
-
-Box::~Box()
-{
-}
 
 class List
 {

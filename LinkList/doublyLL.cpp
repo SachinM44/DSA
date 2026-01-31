@@ -28,7 +28,20 @@ public:
     {
         head = tail = NULL;
     }
+
+
+    void push_front(int value){
+   Node* newNode=new Node(value);
+      if(head==NULL){
+        head=tail=newNode;
+      }else{
+        newNode->next=head;
+        head->prev=newNode;
+        head=newNode;//at final make that new node to head 
+      }
+    }
 };
+
 
 int main()
 {
