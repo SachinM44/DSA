@@ -12,32 +12,28 @@ int main()
     vector<int> price = {40, 50, 28, 10, 48, 22, 10};
     //// so we need the vector and the stack to store those things
 
-    vector<int> ans(price.size(), 0);
     stack<int> s;
-
+    vector<int> ans(price.size(), 0);
     for (int i = 0; i < price.size(); i++)
     {
-
         while (s.size() > 0 && price[s.top()] <= price[i])
         {
             s.pop();
-
-            if (s.empty())
-            {
-                ans[i] = 1 + i;
-            }
-            else
-            {
-                ans[i] = i - s.top(); /// precHigh
-            }
-
-            s.push(i);
         }
+
+        if (s.empty())
+        {
+            ans[i] = i + i;
+        }
+        else
+        {
+            ans[i] = i - s.top(); /// so means , span = i- lastHight
+        }
+        s.push(i);
     }
 
     for(int val:ans){
-        cout<< val << " " <<endl;
+        cout<< val << " " << endl;
     }
-
     return 0;
 }
