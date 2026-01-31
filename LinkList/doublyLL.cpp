@@ -50,10 +50,13 @@ public:
         Node *newNode = new Node(value);
         if (head == NULL)
         {
-            head=tail=newNode;
-        }else{
-            head->next=newNode;
-            newNode->prev=head;
+            head = tail = newNode;
+        }
+        else
+        {
+            newNode->prev = tail;
+            tail->next=newNode;
+            tail=newNode;
 
         }
     }
