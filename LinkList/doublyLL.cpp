@@ -74,9 +74,27 @@ public:
             if (head != NULL)
             {
                 head->prev = NULL;
-                temp->next = NULL;
             };
+            temp->next = NULL;
+            delete temp;
         }
+    }
+
+    void pop_back()
+    {
+       Node * temp=tail;
+       if(tail==NULL){
+        return;
+       }
+       else{
+        tail=tail->prev;
+        if(tail !=NULL){
+            tail->next=NULL;
+            temp->next=NULL;
+
+        }
+        delete tail;
+       }
     }
 
     void print_all()
@@ -98,7 +116,11 @@ int main()
     dd.push_front(4);
     dd.push_front(37);
     dd.push_back(44);
+    dd.push_back(44);
+    dd.pop_back();
+    dd.print_all();
     dd.pop_front();
     dd.print_all();
+
     return 0;
 }
