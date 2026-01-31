@@ -83,7 +83,7 @@ public:
     void pop_back()
     {
        Node * temp=tail;
-       if(tail==NULL){
+       if(head==NULL){
         return;
        }
        else{
