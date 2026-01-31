@@ -55,9 +55,27 @@ public:
         else
         {
             newNode->prev = tail;
-            tail->next=newNode;
-            tail=newNode;
+            tail->next = newNode;
+            tail = newNode;
+        }
+    }
 
+    void pop_front()
+    {
+        Node *temp = head;
+
+        if (head == NULL)
+        {
+            return;
+        }
+        else
+        {
+            head = head->next;
+            if (head != NULL)
+            {
+                head->prev = NULL;
+                temp->next = NULL;
+            };
         }
     }
 
@@ -80,6 +98,7 @@ int main()
     dd.push_front(4);
     dd.push_front(37);
     dd.push_back(44);
+    dd.pop_front();
     dd.print_all();
     return 0;
 }
